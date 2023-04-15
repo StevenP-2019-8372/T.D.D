@@ -1,0 +1,27 @@
+
+@startuml
+actor cliente #red
+participant iniciar #GreenYellow
+participant validar #GreenYellow
+participant calcular #GreenYellow
+cliente -> iniciar #Green: Ingresa el usuario y contraseña
+activate iniciar
+iniciar-> iniciar: Validado login 
+iniciar --> cliente:no es correcto\nIngrese el usuario y contraceña correcto
+iniciar --> cliente:si es correcto\nIngrese un numero
+deactivate iniciar
+cliente -> validar: Ingresa un numero
+activate validar
+validar-> validar: Comprobando que es un numero
+validar--> cliente: no es un numero\nIngrese nuevamente un numero
+validar --> calcular: Enviar el numero a calcular
+activate calcular
+calcular -> calcular: Calcular el logaritmo base 10 \ndel numero
+calcular -> calcular: Calcular la potencia \nal cubo del numero
+calcular -> calcular: Calcular la cantidad de \nnumeros de claces que tiene \nel numero(k)
+calcular -> calcular: Calcular el factorial del numero
+calcular --> validar: Entregar todos los resultados
+deactivate calcular
+validar --> cliente: Entregar resultados
+deactivate validar
+@enduml
